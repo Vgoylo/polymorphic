@@ -1,0 +1,7 @@
+<h1>Pictures all</h1>
+
+<p><%= link_to "New pictures", new_picture_path(@picture)%></p>
+
+<% @pictures.each do |picture| %>
+  <%= link_to "Picture #{picture.id}", picture_path(picture) %>
+<%end%>

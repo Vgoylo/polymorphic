@@ -1,0 +1,7 @@
+<h1> Comments </h1>
+
+<p><%= link_to "New comments", new_comment_path(@comment)%></p>
+
+<% @comments.each do |comment|%>
+  <p> <%= link_to "Comment #{comment.id}", comment_path(comment) %></p>
+<%end%>

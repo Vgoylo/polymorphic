@@ -1,0 +1,12 @@
+<h1>Hello <%= @client.first_name%></h1>
+
+<p><%= Time.now%></p>
+
+<p><%= @client.first_name%></p>
+<p><%= @client.last_name%></p>
+<p><%= @client.email%></p>
+<p><%= @client.phone%></p>
+
+<p>client_id <b><%= @client.id %></></p>
+
+<p><%= link_to "All clients", "/clients" %></p>
