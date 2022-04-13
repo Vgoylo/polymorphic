@@ -1,19 +1,21 @@
-class Admin::CommentsController < ApplicationController
+# frozen_string_literal: true
 
-  def destroy
-    @comment = Comment.find(params[:id])
+module Admin
+  class CommentsController < ApplicationController
+    def destroy
+      @comment = Comment.find(params[:id])
       if comment.destroy
         flash[:success] = 'Success'
         redirect_to comment_path
       else
         flash[:error] = 'Error'
       end
-  end
+    end
 
-  private
+    private
 
-  def comment_params
-    params.require(:comment).permit(:text)
+    def comment_params
+      params.require(:comment).permit(:text)
+    end
   end
 end
-

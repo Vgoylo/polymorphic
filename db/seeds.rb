@@ -1,11 +1,12 @@
+# frozen_string_literal: true
 
 # Add clients
 20.times do |t|
   Client.create(
     first_name: "First name #{t}",
-    last_name:  "Last name #{t}",
+    last_name: "Last name #{t}",
     email: "example#{t}@example.com",
-    phone: "+375 29 883 26 36"
+    phone: '+375 29 883 26 36'
   )
 end
 
@@ -19,14 +20,13 @@ puts 'Clients have been created'
   )
 end
 
-puts 'Products have been created' 
+puts 'Products have been created'
 
 # # Add pictures
 # %w[cool happy sience horror funny interesting].each do |tag_name|
 #   Tag.create!(name: tag_name)
 # end
 
-##Add comments
-
+# #Add comments
 
 puts 'Comments have been created'

@@ -1,12 +1,13 @@
+# frozen_string_literal: true
+
 class PicturesController < ApplicationController
-  def index 
+  def index
     @pictures = Picture.all
   end
 
   def show
     @picture = Picture.find(params[:id])
   end
-
 
   def new
     @picture = Picture.new
@@ -26,12 +27,12 @@ class PicturesController < ApplicationController
 
   def destroy
     @picture = Picture.find(params[:id])
-      if picture.destroy
-        flahs[:success] = 'Success'
-        redirect_to picture_path
-      else
-        flahs[:error] = 'Error'
-      end
+    if picture.destroy
+      flahs[:success] = 'Success'
+      redirect_to picture_path
+    else
+      flahs[:error] = 'Error'
+    end
   end
 
   private

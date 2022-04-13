@@ -1,13 +1,13 @@
-class ProductsController < ApplicationController
+# frozen_string_literal: true
 
+class ProductsController < ApplicationController
   def index
     @products = Product.all
   end
 
-  def show 
-    
+  def show
     binding.pry
-    
+
     @product = Product.find(params[:id])
   end
 
@@ -32,7 +32,7 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    
+
     if @product.update(product_params)
       flash[:success] = 'Success'
       redirect_to products_path

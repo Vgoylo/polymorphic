@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ClientsController < ApplicationController
   skip_before_action :verify_authenticity_token
 
@@ -11,15 +13,15 @@ class ClientsController < ApplicationController
 
   def edit
     @client = Client.find(params[:id])
-  end 
+  end
 
   def new
     @client = Client.new
   end
 
-  def create 
+  def create
     @client = Client.create(client_params)
-      
+
     if @client.save
       flash[:success] = 'Success'
       redirect_to clients_path

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   def index
     @comments = Comment.all
@@ -13,13 +15,13 @@ class CommentsController < ApplicationController
 
   def create
     @comment = Comment.create(comment_params)
-      if @comment.save
-        flash[:success] = 'Success'
-        redirect_to comment_path
-      else
-        flash[:error] = 'Error'
-        render :new
-      end
+    if @comment.save
+      flash[:success] = 'Success'
+      redirect_to comment_path
+    else
+      flash[:error] = 'Error'
+      render :new
+    end
   end
 
   private

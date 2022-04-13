@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Product < ApplicationRecord
   has_many :pictures, as: :imageable, dependent: :destroy
 
@@ -9,20 +11,19 @@ class Product < ApplicationRecord
   # after_find { |product| puts "You have found an object!" }
   # after_initialize { |product| puts "You have initialized an object!" }
 
-  validates :name, :description, 
-            length: {minimum:3, maximum:254,
-             message: 'Input please correct name'
-            }
-  before_save NormalizedName #class for inspect 
+  validates :name, :description,
+            length: { minimum: 3, maximum: 254,
+                      message: 'Input please correct name' }
+  before_save NormalizedName # class for inspect
 
   private
 
   def update_product?
-    name.match? /\A[A-z][a-zA-Z]+/
-  end 
+    name.match?(/\A[A-z][a-zA-Z]+/)
+  end
 
   def success
-    puts "Product was succes save"
+    puts 'Product was succes save'
   end
 
   def destroy_action
