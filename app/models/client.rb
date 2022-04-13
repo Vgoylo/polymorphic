@@ -4,7 +4,6 @@ class Client < ApplicationRecord
   has_many :pictures, as: :imageable, dependent: :destroy
   has_many :comments
   
-  
   # after_find { |client| puts "You have found an object!" }
   # after_initialize { |client| puts "You have initialized an object!" }
   after_destroy :destroy_action
