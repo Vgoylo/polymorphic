@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -12,45 +10,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 20_220_408_080_121) do
+ActiveRecord::Schema[7.0].define(version: 2022_04_08_080121) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension 'plpgsql'
+  enable_extension "plpgsql"
 
-  create_table 'clients', force: :cascade do |t|
-    t.string 'first_name'
-    t.string 'last_name'
-    t.string 'email'
-    t.string 'phone'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "clients", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "phone"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'comments', force: :cascade do |t|
-    t.string 'text'
-    t.bigint 'client_id', null: false
-    t.bigint 'picture_id', null: false
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.index ['client_id'], name: 'index_comments_on_client_id'
-    t.index ['picture_id'], name: 'index_comments_on_picture_id'
+  create_table "comments", force: :cascade do |t|
+    t.string "text"
+    t.bigint "client_id", null: false
+    t.bigint "picture_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["client_id"], name: "index_comments_on_client_id"
+    t.index ["picture_id"], name: "index_comments_on_picture_id"
   end
 
-  create_table 'pictures', force: :cascade do |t|
-    t.string 'name'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
-    t.string 'imageable_type'
-    t.bigint 'imageable_id'
-    t.index %w[imageable_type imageable_id], name: 'index_pictures_on_imageable_type_and_imageable_id'
+  create_table "pictures", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "imageable_type"
+    t.bigint "imageable_id"
+    t.index ["imageable_type", "imageable_id"], name: "index_pictures_on_imageable_type_and_imageable_id"
   end
 
-  create_table 'products', force: :cascade do |t|
-    t.string 'name'
-    t.text 'description'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "products", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  add_foreign_key 'comments', 'clients'
-  add_foreign_key 'comments', 'pictures'
+  add_foreign_key "comments", "clients"
+  add_foreign_key "comments", "pictures"
 end
