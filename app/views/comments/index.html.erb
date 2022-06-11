@@ -5,3 +5,5 @@
 <% @comments.each do |comment|%>
   <p> <%= link_to "Comment #{comment.id}", comment_path(comment) %></p>
 <%end%>
+
+<p> <%= @comments.count %> Number of comments</p>
