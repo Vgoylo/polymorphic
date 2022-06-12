@@ -5,3 +5,5 @@
 <% @clients.each do |client|%>
   <p> <%= link_to "Client #{client.id}", client_path(client) %></p>
 <%end%>
+
+<p> <%= @clients.count %> Number of clients</p>
